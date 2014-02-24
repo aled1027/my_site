@@ -1,0 +1,52 @@
+{% extends "bbase.html" %}
+{% block sidebar %}
+        Monthly Archive
+        <p>
+        {% for month in months %}
+            {% ifchanged month.0 %} {{ month.0 }} <br /> {% endifchanged %}
+            <a href="#">{{ month.2 }}</a> <br />
+        {% endfor %}
+        </p>
+{% endblock %}
+
+{% block content %}
+    <div class="page-header" id="banner">
+		<div class="row">
+			<div class="col-lg-6">
+				<h1>Algorithms and Data Structures</h1>
+            	<p class="lead"> What goes on behind the scenes</p>
+			</div>
+		</div>
+	</div>
+	<div class="main">
+        <!-- Posts  -->
+            {% for post in post_list %}
+			<div class="title">
+				<a href="{% url "blog_post" post.id %}">{{ post.title }}</a>
+			</div> 
+                <ul>
+                    <div class="time">{{ post.created }}</div>
+                    <div class="body">{{ post.body|linebreaks }}</div>
+                </ul>
+            {% endfor %}
+
+        <!-- Next/Prev page links  -->
+        {% if not archive and posts.object_list and posts.paginator.num_pages > 1 %}
+        <div class="pagination">
+            <span class="step-links">
+                {% if posts.has_previous %}
+                    <a href= "?page={{ posts.previous_page_number }}">newer entries &lt;&lt; </a>
+                {% endif %}
+
+                <span class="current">
+                    &nbsp;Page {{ posts.number }} of {{ posts.paginator.num_pages }}
+                </span>
+
+                {% if posts.has_next %}
+                    <a href="?page={{ posts.next_page_number }}"> &gt;&gt; older entries</a>
+                {% endif %}
+            </span>
+        </div>
+        {% endif %}
+    </div>
+{% endblock %}
