@@ -1,0 +1,21 @@
+{% extends "bbase.html" %}
+
+{% block title %} Course List {% endblock %}
+
+{% block content %}
+	<h1> List of Courses </h1>
+	<ul>
+		{% for course in course_list %}
+				<li><a href="{% url "school_course_detail" course.pk %}">{{ course.name }}</a>
+				<ul>
+					<li> {{ course.body }} </li>
+				</ul>
+			</li>
+		{% endfor %}
+		<li> <a href="{% url "school_course_form" %}">Add a course</a></li>
+	</ul>
+		
+{% endblock %}
+
+
+

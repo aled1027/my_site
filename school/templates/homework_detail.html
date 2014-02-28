@@ -1,0 +1,26 @@
+{% extends "bbase.html" %}
+
+{% block title %} Homework | {{homework.name}} {% endblock %}
+
+{% block content %}
+	<h1> {{ homework.name }} </h1>
+	<ul>
+		<li> Course: <a href="{% url "school_course_detail" homework.course.pk %}">{{ homework.course.name }} </a></li>
+		<li> file_field download </li>
+		<li> Due Date: {{ homework.due_date }} </li>
+		<li> Points: {{ homework.points }} </li>
+		{% for program in homework.program_set.all %}
+		<pre>
+			<code>
+			{{ program.code }}
+			</code>
+		</pre>
+		{% endfor %}
+
+		<li><a href="{% url "school_program_form" homework.course.pk homework.pk %}">Add program</a></li>
+		<li><a href="{% url "school_homework_form" homework.course.pk homework.pk %}">Edit</a></li>
+		<li><a href="{% url "school_homework_delete" homework.course.pk homework.pk %}">Delete</a></li>
+{% endblock %}
+
+
+

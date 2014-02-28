@@ -1,0 +1,23 @@
+{% extends "bbase.html" %}
+
+{% block title %} Homework | {{homework.name}} {% endblock %}
+
+{% block content %}
+	<h1> Program detail page - not updated yet </h1>
+	<h1> {{ homework.name }} </h1>
+	<ul>
+		<li> file_field download </li>
+		<li> Due Date: {{ homework.due_date }} </li>
+		<li> Points: {{ homework.points }} </li>
+		{% for program in homework.program_set.all %}
+		<pre>
+			<code>
+			{{ program.code }}
+			</code>
+		</pre>
+		{% endfor %}
+
+{% endblock %}
+
+
+

@@ -19,6 +19,7 @@ ALLOWED_HOSTS = []
 TEMPLATE_DIRS = (
 		os.path.join(BASE_DIR, 'my_site', 'templates'),
 		os.path.join(BASE_DIR, 'blog', 'templates'),
+		os.path.join(BASE_DIR, 'school', 'templates'),
 )
 
 
@@ -32,6 +33,7 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
 	'blog',
+	'school',
 	'south',
 )
 

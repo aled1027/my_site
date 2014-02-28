@@ -1,13 +1,18 @@
 import time
 from calendar import month_name
 
-from django.http import HttpResponseRedirect, HttpResponse
-from django.shortcuts import get_object_or_404, render_to_response
+from django.http import HttpResponseRedirect, HttpResponse, Http404
+from django.shortcuts import get_object_or_404, render_to_response, render
 from django.contrib.auth.decorators import login_required
 from django.core.context_processors import csrf
 from django.core.paginator import Paginator, InvalidPage, EmptyPage
 from django.core.urlresolvers import reverse
 
+# for pdfs
+from reportlab.pdfgen import canvas
+from django.http import HttpResponse
+
+# my stuff
 from blog.models import *
 from blog.forms import *
 
@@ -27,7 +32,7 @@ def delete_comment(request, post_pk, pk=None):
 
         for pk in pklst:
             Comment.objects.get(pk=pk).delete()
-        return HttpResponseRedirect(reverse("dbe.blog.views.post", args=[post_pk]))
+        return HttpResponseRedirect(reverse("blog.views.post", args=[post_pk]))
 
 def add_comment(request, pk):
 	p = request.POST

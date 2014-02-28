@@ -1,0 +1,15 @@
+<div class="row">
+     <div class="form">
+		{% if form.is_multipart %}
+			<form enctype="multipart/form-data" method="post">
+		{% else %}
+        	<form action="" method="POST">
+		{% endif %}
+
+			{{ form.as_p }}
+			<input type="submit" value="Submit">
+			{% csrf_token %}
+         	</form>
+
+     </div>
+ </div>

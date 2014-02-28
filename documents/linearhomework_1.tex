@@ -1,0 +1,50 @@
+\documentclass[10pt]{article}
+
+\usepackage[margin=1in]{geometry} 
+\usepackage{amsmath,amsthm,amssymb}
+
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+
+\newenvironment{theorem}[2][Theorem]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{lemma}[2][Lemma]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{exercise}[2][Exercise]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{problem}[2][Problem]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{question}[2][Question]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{corollary}[2][Corollary]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+
+\begin{document}
+
+% --------------------------------------------------------------
+%                         Start here
+% --------------------------------------------------------------
+
+\title{Linear Algebra Problem Set}
+\author{Alex Ledger }
+\date{due 2/25/2014}
+\maketitle
+
+
+\begin{problem}{1} True or False? \\
+\\
+a. True. This is almost word for word a corollary to theorem 2.32. Thm 2.32 states For any diffential operator $p(D)$ of order $n$, the null space of $p(D)$ is an n-dimensional subspace of $C^\infty$. Thereby the solution-space is an n-dimensional of $C^\infty$. \\
+b. True. This also also follows from Theorem 2.32 which is stated above. 
+c. False - the solutions to the auxiliary polynomial correspond to the solutions of the differential equations. \\
+d. False. Counterexample is example 1 on page 129 where sine and cosine are used.  \\
+e. True. This is true because the solutions to a homogeneous linear differential equation form a basis, wherein linear combinations form the solutions to the equation. Follows from a combination of theorem 2.31 and 2.33 \\
+f. False. This is only true for homogenous linear differential equations of order $k$. See corollary to theorem 2.33.  \\
+g. True. $p(t) \in P(C)$ corresponds to the coefficients of the homogeneous linear differential equation. A term of a homogenous linear differential equation can have any coefficient in $C$. Therefore any term of $p(t)$ correspond to any term in homogenous linear differential equation, and there exists a homogeneous differential equation for all possible $p(t)$ over $C$. 
+\\
+
+\end{problem}
+
+% ------------------ --------------------------------------------
+%     You don't have to mess with anything below this line.
+% --------------------------------------------------------------
+{\end{document}

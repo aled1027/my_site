@@ -1,0 +1,25 @@
+{% extends "bbase.html" %}
+
+{% block title %} Course Detail {% endblock %}
+
+{% block content %}
+	<h1> {{ course.name }} </h1>
+	<p> {{course.body }} </p>
+	<ul>
+		<li><a href="{% url "school_homework_form" course.pk %}">Add homework</a></li>
+		<li><a href="{% url "school_course_form" course.pk %}">Edit {{course.name}}</a></li>
+		<li><a href="{% url "school_course_delete" course.pk %}">Delete {{ course.name }}</a></li>
+		{% if course.homeworks.all %}
+		<li> Homeworks: 
+			<ul>
+				{% for hw in course.homeworks.all %}
+				<li> <a href="{% url "school_homework_detail" course.pk hw.pk %}">{{ hw.name }} </a></li>
+				{% endfor %}
+			</ul>
+		</li>
+		{% endif %}
+	</ul>
+{% endblock %}
+
+
+
